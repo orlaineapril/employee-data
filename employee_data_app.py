@@ -65,3 +65,8 @@ if st.sidebar.button("Login"):
             st.success("Changes saved successfully!")
     else:
         st.sidebar.error("Invalid employee_id or Password.")
+
+st.write("Entered ID:", employee_id)
+st.write("Entered Password:", password)
+st.write("Available IDs:", df['Employee ID'].tolist())
+
