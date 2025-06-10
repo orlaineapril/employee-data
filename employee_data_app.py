@@ -37,7 +37,7 @@ def display_all_data():
                 df.at[index, column] = new_value
 
 # Streamlit app
-st.title("Employee Data Generator")
+st.title("Employee Payroll Information Databank")
 
 # Login form
 st.sidebar.title("Login")
