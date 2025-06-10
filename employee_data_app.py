@@ -11,8 +11,17 @@ admin_password = 'admin123'
 
 # Function to authenticate user
 def authenticate(employee_id, password):
-    if employee_id in df['employee_id'].values:
-        stored_password = df.loc[df['employee_id'] == employee_id, 'Password'].values[0]
+    # Clean column names and values
+    df.columns = df.columns.str.strip()
+    df['Employee ID'] = df['Employee ID'].astype(str).str.strip()
+    df['Password'] = df['Password'].astype(str).str.strip()
+
+    # Clean input values
+    employee_id = employee_id.strip()
+    password = password.strip()
+
+    if employee_id in df['Employee ID'].values:
+        stored_password = df.loc[df['Employee ID'] == employee_id, 'Password'].values[0]
         if stored_password == password:
             return True
     return False
